@@ -22,11 +22,11 @@ public class ExpensesController {
     }
 
     @PostMapping()
-    public ResponseEntity<Expenses> createExpense(@RequestBody CreateExpense createExpense) {
+    public ResponseEntity<Expenses> createExpense(@RequestBody ExpenseDTO expenseDTO) {
         Expenses newExpenses = Expenses.builder()
-                .name(createExpense.getName())
-                .price(createExpense.getPrice())
-                .typeOfElement(createExpense.getTypeOfElement())
+                .name(expenseDTO.getName())
+                .price(expenseDTO.getPrice())
+                .typeOfElement(expenseDTO.getTypeOfElement())
                 .build();
         Expenses savedExpenses = expensesRepository.save(newExpenses);
         return ResponseEntity.ok(savedExpenses);

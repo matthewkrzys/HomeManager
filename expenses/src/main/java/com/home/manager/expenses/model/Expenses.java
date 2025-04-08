@@ -3,14 +3,13 @@ package com.home.manager.expenses.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 @Entity
-@Data
 @Table(name = "expenses")
 @Builder
 @AllArgsConstructor
+@Getter
 public class Expenses {
 
     @Id
@@ -18,6 +17,9 @@ public class Expenses {
     private Long id;
     private String name;
     private Double price;
+
+//    @Convert(converter = TypeConverter.class)
+    @Enumerated(EnumType.STRING)
     private Type typeOfElement;
 
     public Expenses() {

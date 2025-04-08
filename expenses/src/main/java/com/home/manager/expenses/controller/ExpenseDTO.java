@@ -4,7 +4,7 @@ import com.home.manager.expenses.model.Type;
 import lombok.Data;
 
 @Data
-public class CreateExpense {
+public class ExpenseDTO {
     private String name;
     private Double price;
     private Type typeOfElement;
